@@ -1,0 +1,37 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+student/node_modules/
+lecturer/node_modules/
+head_of_department/node_modules/
+examination_officer/node_modules/
+server/node_modules/
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+student/build
+lecturer/build
+head_of_department/build
+examination_officer/build
+server/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+# SERVER/.DS_Store
+# SERVER/.env.local
+# SERVER/.env.development.local
+# SERVER/.env.test.local
+# SERVER/.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
