@@ -36,7 +36,7 @@ const ClaimSchema = new mongoose.Schema({
     },
     claimDetails: {
         type: String,
-        required: true
+        required: false
     },
     email: {
         type: String,
@@ -58,7 +58,19 @@ const ClaimSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    departmentApproval: {
+        type: String,
+        required: false
+    },
+    departmentSignature: {
+        type: String,
+        required: false
+    },
     teacherComment: {
+        type: String,
+        required: false
+    },
+    teacherSignature: {
         type: String,
         required: false
     }

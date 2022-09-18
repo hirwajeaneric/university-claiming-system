@@ -8,7 +8,6 @@ const studentSchema = new mongoose.Schema({
     regNumber: {type: String, required: true},
     name: {type: String, required: true},
     email: {type: String, required: true},
-    sponsorEmail: {type: String, required: true},
     password: {type: String, required: true}
 });
 
@@ -24,7 +23,6 @@ const validate = (data) => {
         regNumber: Joi.string().required().label('Registration Number'),
         name: Joi.string().required().label('Name'),
         email: Joi.string().email().required().label('Email'),
-        sponsorEmail: Joi.string().email().required().label('Sponsor Email'),
         password: passwordComplexity().required().label('Password')
     })
     return schema.validate(data)

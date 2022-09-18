@@ -18,7 +18,7 @@ const TopBar = () => {
                 <div className={styles.logo}>
                     <img src={auca_icon} alt='' className={styles.image}/>
                 </div>
-                <h1 className={styles.systemName}>AUCA Contract</h1>
+                <h1 className={styles.systemName}>AUCA Claiming System</h1>
             </div>
             <div className={styles.right_s}>
                 <p className={styles.userName}>{name}&nbsp;&nbsp;&nbsp;-</p>

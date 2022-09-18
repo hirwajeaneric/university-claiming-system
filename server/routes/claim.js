@@ -21,6 +21,34 @@ router.get('/list', function (req, res, next) {
   })
 });
 
+router.get('/listSignedByLecturer', function (req, res, next) {
+  claimModel.find({teacherSignature:"Signed"})
+  .then(response=> {
+    if (response) {
+      res.status(200).send(response)
+    } else {
+      res.status(404).send("No claims available")
+    }
+  })
+  .catch(err=>{
+    res.status(500).send("Server error: "+err)
+  })
+});
+
+router.get('/listSignedByDepartment', function (req, res, next) {
+  claimModel.find({departmentApproval:"Approved"})
+  .then(response=> {
+    if (response) {
+      res.status(200).send(response)
+    } else {
+      res.status(404).send("No claims available")
+    }
+  })
+  .catch(err=>{
+    res.status(500).send("Server error: "+err)
+  })
+});
+
 router.post('/new', (req, res, next) => {
   req.body.creationDate = new Date().toDateString();
   console.log(req.body);
@@ -52,6 +80,51 @@ router.get('/findByRegNumber', function (req, res, next){
       res.status(200).send(response)
     } else {
       res.status(404).send("You don't have any claim yet!")
+    }
+  })
+  .catch(err=>{
+    res.status(500).send("Server error: "+err)
+  })
+})
+
+router.get('/findByDepartment', function (req, res, next){
+  const theDepartment= req.query.department;
+  claimModel.find({department:theDepartment})
+  .then(response=> {
+    if (response) {
+      res.status(200).send(response)
+    } else {
+      res.status(404).send("No claims!")
+    }
+  })
+  .catch(err=>{
+    res.status(500).send("Server error: "+err)
+  })
+})
+
+router.get('/findByCourseCode', function (req, res, next){
+  const theCourseCode= req.query.courseCode;
+  claimModel.find({courseCode:theCourseCode})
+  .then(response=> {
+    if (response) {
+      res.status(200).send(response)
+    } else {
+      res.status(404).send("No claims!")
+    }
+  })
+  .catch(err=>{
+    res.status(500).send("Server error: "+err)
+  })
+})
+
+router.get('/findByType', function (req, res, next){
+  const theType= req.query.type;
+  claimModel.find({type:theType})
+  .then(response=> {
+    if (response) {
+      res.status(200).send(response)
+    } else {
+      res.status(404).send("No claims!")
     }
   })
   .catch(err=>{
