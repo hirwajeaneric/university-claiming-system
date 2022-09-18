@@ -2,7 +2,7 @@
 	width: 90%;
 	margin-top: 40px;
 	background-color: white;
-	padding: 30px 40px;
+	padding: 30px 20px;
 	border-radius: 10px;
 	border: 1px solid rgb(216, 216, 216);
 	font-size: 90%;
@@ -30,6 +30,10 @@ tr {
 	padding: 0;
 }
 
+td {
+	padding: 0;
+}
+
 p {
 	margin: 20px 0;
 }
@@ -40,9 +44,25 @@ p {
 	font-size: 90%;
 }
 
-input[type="text"] {
-	padding: 5px;
+input[type="text"], 
+select, 
+input[type="email"], 
+input[type="tel"],
+textarea,
+option {
+	padding: 4px;
 	border-radius: 5px;
+	width: 150px;
+	border: 1px solid rgb(197, 197, 197);
+}
+
+textarea {
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	;
+}
+
+select {
+	width: 150px;
 	border: 1px solid rgb(197, 197, 197);
 }
 
@@ -62,10 +82,34 @@ label {
 }
 
 .submit-btn:hover {
-	background-color: rgb(0, 100, 0);
+	background-color: rgb(0, 122, 198) !important;
 }
 
 .cancel-btn {
-	margin: 0;	
+	height: 100%;
 }
 
+.cancel-btn:hover {
+	background-color: black;
+}
+
+.left, .right {
+	display: flex;
+	/* flex-direction: row; */
+	width: 100%;
+	/* background-color: gray; */
+}
+
+.form-two-sides {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	width: 100%;	
+}
+
+.form-commands {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 20px 0 0;
+}
