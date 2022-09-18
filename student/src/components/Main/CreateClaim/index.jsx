@@ -1,7 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import FormTableOne from '../FormTableOne';
 import './styles.css';
+import departments from '../AucaDepartments/Departments';
 
 function CreateClaim() {
 
@@ -32,7 +34,7 @@ function CreateClaim() {
 
     setFormData(combinedFormData);
   }, [])
-
+  
   const handleChange = ({currentTarget: input })=>{
     setFormData({...formData, [input.name]: input.value});
   };  
@@ -93,141 +95,11 @@ function CreateClaim() {
         <div className='error-message-box'>
           { error && <div className='error_msg'>{error}</div> }
         </div>
-        <table>
-        <tbody>
-          <tr>
-            <td>
-              <label>Faculty</label>
-            </td>
-            <td>
-              <input 
-                type={"text"} 
-                name="faculty" 
-                value={formData.faculty} 
-                placeholder="Faculty" 
-                onChange={handleChange}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label>Department</label>
-            </td>
-            <td>
-              <input 
-                type={"text"} 
-                name="department" 
-                value={formData.department} 
-                placeholder="Department" 
-                onChange={handleChange}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label>Course Name</label>
-            </td>
-            <td>
-              <input type={"text"} 
-                name="courseName" 
-                value={formData.courseName} 
-                placeholder="Course Name" 
-                onChange={handleChange}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label>Course Code</label>
-            </td>
-            <td>
-              <input 
-                type={"text"} 
-                name="courseCode" 
-                value={formData.courseCode} 
-                placeholder="Course Code" 
-                onChange={handleChange}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label>Accademic Year</label>
-            </td>
-            <td>
-              <input 
-                type={"text"} 
-                name="academicYear" 
-                value={formData.academicYear} 
-                placeholder="Academic year" 
-                onChange={handleChange}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label>Type of claim</label>
-            </td>
-            <td>
-              <input type={"text"} 
-                name="type" 
-                value={formData.type} 
-                placeholder="Type of claim" 
-                onChange={handleChange}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label>Claim Details</label>
-            </td>
-            <td>
-              <input type={"text"} 
-                name="claimDetails" 
-                value={formData.claimDetails} 
-                placeholder="Claim Details" 
-                onChange={handleChange}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label>Email</label>
-            </td>
-            <td>
-              <input 
-                type={"email"} 
-                name="email" 
-                value={formData.email} 
-                placeholder="example@gmail.com" 
-                onChange={handleChange}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label>Phone Number</label>
-            </td>
-            <td>
-              <input 
-                type={"tel"} 
-                name="phoneNumber" 
-                value={formData.phoneNumber} 
-                placeholder="+xxx xxx xxx xxx" 
-                onChange={handleChange}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <button type='submit' className='submit-btn'>Submit Claim</button>
-            </td>
-            <td className='cancel-btn-container'>
-              <Link className='cancel-btn' to={'/claims'}>Cancel</Link>
-            </td>
-          </tr>
-          </tbody>
-        </table>
+        <FormTableOne formData={formData} handleChange={handleChange} departments={departments}/>
+        <div className='form-commands'>
+          <button type='submit' className='submit-btn'>Submit</button>
+          <Link className='cancel-btn' to={'/claims'}>Cancel</Link>
+        </div>
       </form>
     </div>
   )
