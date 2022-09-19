@@ -73,6 +73,10 @@ const ClaimSchema = new mongoose.Schema({
     teacherSignature: {
         type: String,
         required: false
+    },
+    examinationOfficerSignature: {
+        type: String,
+        required: false
     }
 });
 

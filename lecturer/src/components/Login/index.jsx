@@ -41,7 +41,7 @@ const Login = () => {
             <div className={styles.login_form_container}>
                 <div className={styles.left}>
                     <div className={styles.auca_logo}></div>
-                    <h1>AUCA CONTRACT</h1>
+                    <h1>AUCA CLAIMING SYSTEM</h1>
                 </div>
                 <div className={styles.right}>
                     <form className={styles.form_container} onSubmit={handleSubmit}>

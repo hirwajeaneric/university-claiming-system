@@ -17,11 +17,9 @@
 	padding: 5px;
 	margin: 5px 0 10px;
 	font-size: 14px;
-	/* background-color: #f34646; */
 	background-color: #ffd1d1;
 	border: 1px solid #f34646;
 	color: red;
-	/* color: #f34646; */
 	border-radius: 5px;
 	text-align: center;
 }
@@ -44,16 +42,14 @@ p {
 	font-size: 90%;
 }
 
-input[type="text"], 
+.create-claim-inputs, 
 select, 
-input[type="email"], 
-input[type="tel"],
 textarea,
 option {
-	padding: 4px;
-	border-radius: 5px;
-	width: 150px;
-	border: 1px solid rgb(197, 197, 197);
+	padding: 4px !important;
+	border-radius: 5px !important;
+	width: 150px !important;
+	border: 1px solid rgb(197, 197, 197) !important;
 }
 
 textarea {
@@ -95,9 +91,7 @@ label {
 
 .left, .right {
 	display: flex;
-	/* flex-direction: row; */
 	width: 100%;
-	/* background-color: gray; */
 }
 
 .form-two-sides {

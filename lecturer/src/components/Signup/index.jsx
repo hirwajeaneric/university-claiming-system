@@ -9,7 +9,6 @@ const Signup = () => {
         regNumber:"",
         name: "",
         email: "",
-        sponsorEmail:"",
         password:""
     });
 
@@ -43,7 +42,7 @@ const Signup = () => {
             <div className={styles.signup_form_container}>
                 <div className={styles.left}>
                     <div className={styles.auca_logo}></div>
-                    <h1>AUCA CONTRACT</h1>
+                    <h1>AUCA CLAIMING SYSTEM</h1>
                 </div>
                 <div className={styles.right}>
                     <form className={styles.form_container} onSubmit={handleSubmit}>
@@ -76,23 +75,23 @@ const Signup = () => {
                             required   
                         />
                         <input 
-                            type="text" 
-                            className={styles.input} 
-                            placeholder="Sponsor Email"
-                            name='sponsorEmail'
-                            onChange={handleChange}
-                            value={data.sponsorEmail} 
-                            required   
-                        />
-                        <input 
                             type="password" 
                             className={styles.input} 
-                            placeholder="password"
+                            placeholder="Create password"
                             name='password'
                             onChange={handleChange}
                             value={data.password} 
                             required   
                         />
+                        {/* <input 
+                            type="password" 
+                            className={styles.input} 
+                            placeholder="Confirm password"
+                            name='confirmPassword'
+                            onChange={handleChange}
+                            value={data.password} 
+                            required   
+                        /> */}
                         { error && <div className={styles.error_msg}>{error}</div> }
                         <button type='submit' className={styles.green_btn}>Sign Up</button>
                         <div className={styles.bottom}>
