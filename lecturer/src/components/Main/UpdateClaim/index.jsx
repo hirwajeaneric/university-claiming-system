@@ -40,6 +40,7 @@ function UpdateClaim() {
     })
     .catch(error => {
       setError(error)
+      console.log(error);
     })
   },[]);
   
@@ -61,8 +62,8 @@ function UpdateClaim() {
       return;
     } else {
       try {
-        const url = `http://localhost:8080/api/claim/update/${claimId}`;
-        const { data: res } = await axios.post(url, formData);
+        const url = `http://localhost:8080/api/claim/update?id=${claimId.id}`;
+        const { data: res } = await axios.put(url, formData);
         const claim = res;
         if(claim)
           navigate(`/success`);
@@ -73,6 +74,7 @@ function UpdateClaim() {
               error.response.status <= 500
           ){
               setError(error.response.data.message);
+              console.log(error);
           }
       }
     }

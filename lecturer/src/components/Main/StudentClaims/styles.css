@@ -70,11 +70,6 @@
 	flex-direction: column;
 }
 
-.table {
-	border-collapse: collapse !important;
-	width: 100%;
-}
-
 thead {
 	font-size: 90%;
 }
@@ -85,14 +80,31 @@ th,td {
 	font-size: 90%;
 }
 
-td, th {
-	padding: 5px 10px;
-	text-align: left;
-}
-
 th {
 	background-color: black;
 	color: white;
+}
+
+.student-claims-table {
+	background-color: white;
+	border-collapse: collapse !important;
+	width: 100%;
+}
+
+.student-claim-rows {
+
+}
+
+.student-claim-rows:nth-child(even) {background-color: #f2f2f2;}
+.student-claim-rows:hover {background-color: #f5f5f5;}
+
+.student-claim-theader {
+
+}
+
+.student-claim-tdata {
+	padding: 5px 5px;
+	text-align: left;
 }
 
 .view-link {
@@ -101,7 +113,7 @@ th {
 	background-color: green;
 	font-size: 80%;
 	padding: 5px 10px;
-	border-radius: 5px;
+	border-radius: 5px;	
 	margin-right: 5px;
 }
 
@@ -112,6 +124,7 @@ th {
 	font-size: 80%;
 	padding: 5px 10px;
 	border-radius: 5px;
+	margin-right: 5px;
 }
 
 .view-link:hover {

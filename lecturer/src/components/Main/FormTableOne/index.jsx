@@ -33,8 +33,8 @@ const FormTableOne = ({formData, handleChange}) => {
                   <td className='update-tdata'>
                     <select name="teacherSignature" value={formData.teacherSignature} onChange={handleChange}>
                       <option>Validate</option>
-                      <option>Approve</option>
-                      <option>Reject</option>
+                      <option>Approved</option>
+                      <option>Rejected</option>
                     </select>
                   </td>
                 </tr>

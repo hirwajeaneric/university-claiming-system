@@ -27,28 +27,26 @@ const StudentClaims = ()=> {
         <h1 className='titleText'>Claims</h1>
       </div>
       <div className='table-container'>
-        <table>
+        <table className='student-claims-table'>
           <thead>
-            <tr>
-                <th>Date</th>
-                <th>Course</th>
-                <th>Type</th>
-                <th>Details</th>
-                <th>Lecturer Approval</th>
-                <th>Status</th>
-                <th>Actions</th>
+            <tr className='student-claim-rows'>
+                <th className='student-claim-theader'>Date</th>
+                <th className='student-claim-theader'>Course</th>
+                <th className='student-claim-theader'>Type</th>
+                <th className='student-claim-theader'>Details</th>
+                <th className='student-claim-theader'>Lecturer Approval</th>
+                <th className='student-claim-theader'>Actions</th>
             </tr>
           </thead>
           <tbody>
             {
               claims ? claims.map(claim=>(
-                <tr key={claim._id}>
-                  <td>{claim.creationDate}</td>
-                  <td>{claim.courseName}</td>
-                  <td>{claim.type}</td>
-                  <td>{claim.claimDetails}</td>
-                  <td>{claim.teacherSignature}</td>
-                  <td>{claim.status}</td>
+                <tr className='student-claim-rows' key={claim._id}>
+                  <td className='student-claim-tdata'>{claim.creationDate}</td>
+                  <td className='student-claim-tdata'>{claim.courseName}</td>
+                  <td className='student-claim-tdata'>{claim.type}</td>
+                  <td className='student-claim-tdata'>{claim.claimDetails}</td>
+                  <td className='student-claim-tdata'>{claim.teacherSignature}</td>
                   <td>
                     <Link to={`/claim/${claim._id}`} className="view-link">Details</Link>
                     <Link to={`/update/${claim._id}`} className="update-link">Update</Link>
