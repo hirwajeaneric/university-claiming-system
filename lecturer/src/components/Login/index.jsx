@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const Login = () => {
     const [data, setData] = useState({
-        regNumber:"",
+        username:"",
         password:""
     });
 
@@ -19,11 +19,12 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url = "http://localhost:8080/student/login";
-            const { data: res } = await axios.post(url, data);
-            localStorage.setItem('token', res.data);
-            localStorage.setItem('id', res.regNumber);
-            localStorage.setItem('name', res.name);
+            const url = "http://localhost:8080/lecturer/login";
+            const response = await axios.post(url, data);
+            const {token, user, message} = response.data;
+            localStorage.setItem('token', token);
+            localStorage.setItem('username', user.username);
+            localStorage.setItem('courseCode', user.courseCode);
             window.location = "/"
         } catch (error) {
             if(
@@ -41,24 +42,25 @@ const Login = () => {
             <div className={styles.login_form_container}>
                 <div className={styles.left}>
                     <div className={styles.auca_logo}></div>
-                    <h1>AUCA CONTRACT</h1>
+                    <h1>AUCA CLAIMING SYSTEM</h1>
                 </div>
                 <div className={styles.right}>
                     <form className={styles.form_container} onSubmit={handleSubmit}>
-                        <h1>Login to Your Account</h1>
+                        <h4>Lecturer</h4>
+                        <h1>SIGN IN</h1>
                         <input 
                             type="text" 
                             className={styles.input} 
-                            placeholder="Registration Number"
-                            name='regNumber'
+                            placeholder="Username"
+                            name='username'
                             onChange={handleChange}
-                            value={data.regNumber} 
+                            value={data.username} 
                             required   
                         />
                         <input 
                             type="password" 
                             className={styles.input} 
-                            placeholder="password"
+                            placeholder="Password"
                             name='password'
                             onChange={handleChange}
                             value={data.password} 

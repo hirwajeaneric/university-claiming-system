@@ -70,6 +70,10 @@ const ClaimDetails = () => {
             <th>Department Approval</th>
             <td>{claim.departmentApproval}</td>
           </tr>
+          <tr>
+            <th>Examination office Signature</th>
+            <td>{claim.examinationOfficerSignature}</td>
+          </tr>
         </table>
       </div>
     </div>

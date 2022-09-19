@@ -2,14 +2,12 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Main from "./components/Main";
 import Signup from './components/Signup';
 import Login from './components/Login';
-import CheckinList from "./components/Main/CheckinList";
-import UpdateCheckin from "./components/Main/UpdateCheckin";
-import CreateContract from './components/Main/CreateContract';
-import MyContracts from './components/Main/MyContracts';
+import StudentClaims from './components/Main/StudentClaims';
 import Success from './components/Main/Success';
 import Notifications from './components/Main/Notifications'
 import NotificationDetails from './components/Main/NotificationDetails';
-import ContractDetails from "./components/Main/ContractDetails";
+import ClaimDetails from "./components/Main/claimDetails";
+import UpdateClaim from "./components/Main/UpdateClaim";
 
 function App() {
   const user = localStorage.getItem('token')
@@ -17,12 +15,10 @@ function App() {
     <Routes>
       {user &&
       <Route path="/" exact element={<Main />} >  
-        <Route  path="contracts/" element={<MyContracts />} />
-        <Route path="new-contract/" element={<CreateContract />} />
+        <Route  path="claims/" element={<StudentClaims />} />
         <Route path="success/" element={<Success />} />
-        <Route path="contract/:id" element={<ContractDetails />} />
-        <Route path="checkins/" element={<CheckinList />} />
-        <Route path="update-checkin/:id" element={<UpdateCheckin />} />
+        <Route path="claim/:id" element={<ClaimDetails />} />
+        <Route path="update/:id" element={<UpdateClaim />} />
         <Route path="notifications/" element={<Notifications />} />
         <Route path='notification-details' element={<NotificationDetails/>} />
       </Route>
@@ -31,13 +27,11 @@ function App() {
       <Route path="login" exact element={<Login />} /> 
       
       <Route path="/" exact element={<Navigate replace to="/login" />} />
-      <Route path="/contracts" exact element={<Navigate replace to="/login" />} />
-      <Route path="/checkins" exact element={<Navigate replace to="/login" />} />
-      <Route path="/new-contract" exact element={<Navigate replace to="/login" />} />
+      <Route path="/claims" exact element={<Navigate replace to="/login" />} />
       <Route path="/success/" exact element={<Navigate replace to="/login" />} />
-      <Route path="contract/:id" exact element={<Navigate replace to="/login" />} />
+      <Route path="claim/:id" exact element={<Navigate replace to="/login" />} />
+      <Route path="update/:id" exact element={<Navigate replace to="/login" />} />
       <Route path="notifications/" exact element={<Navigate replace to="/login" />} />
-      <Route path="/update-checkin/:id" exact element={<Navigate replace to="/login" />} />
       <Route path="/notification-details/:id" exact element={<Navigate replace to="/login"/>}/>
     </Routes>
   );

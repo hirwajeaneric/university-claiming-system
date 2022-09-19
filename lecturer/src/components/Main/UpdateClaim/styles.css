@@ -72,23 +72,6 @@ label {
 	justify-content: flex-end;
 }
 
-.submit-btn {
-	border-radius: 0;
-	cursor: pointer;
-}
-
-.submit-btn:hover {
-	background-color: rgb(0, 122, 198) !important;
-}
-
-.cancel-btn {
-	height: 100%;
-}
-
-.cancel-btn:hover {
-	background-color: black;
-}
-
 .left, .right {
 	display: flex;
 	width: 100%;
@@ -106,4 +89,41 @@ label {
 	flex-direction: row;
 	justify-content: space-between;
 	margin: 20px 0 0;
+}
+
+.update-theader {
+	background-color: white;
+	border-bottom: 1px solid rgb(207, 207, 207);
+	color: black;
+}
+
+.submit-btn {
+	border-radius: 0;
+	cursor: pointer;
+}
+
+.submit-btn:hover {
+	background-color: rgb(0, 122, 198) !important;
+}
+
+.cancel-btn {
+	height: 100%;
+}
+
+.cancel-btn:hover {
+	background-color: black;
+}
+
+.back-btn {
+	border-radius: 0;
+	cursor: pointer;
+	height: 100%;
+	text-decoration: none;
+	background-color: #8d8d8d;
+	color: white;
+	padding: 8px 12px;
+}
+
+.back-btn:hover {
+	background-color: rgb(0, 122, 198) !important;
 }

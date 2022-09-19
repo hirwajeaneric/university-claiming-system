@@ -6,11 +6,11 @@ import { useState } from 'react';
 
 const Signup = () => {
     const [data, setData] = useState({
-        regNumber:"",
+        username:"",
         name: "",
         email: "",
-        sponsorEmail:"",
-        password:""
+        courseCode: "",
+        password: ""
     });
 
     const [error, setError] = useState("");
@@ -23,7 +23,7 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url = "http://localhost:8080/student/signup";
+            const url = "http://localhost:8080/lecturer/signup";
             const { data: res } = await axios.post(url, data);
             navigate('/login');
             console.log(res.message);
@@ -43,18 +43,19 @@ const Signup = () => {
             <div className={styles.signup_form_container}>
                 <div className={styles.left}>
                     <div className={styles.auca_logo}></div>
-                    <h1>AUCA CONTRACT</h1>
+                    <h1>AUCA CLAIMING SYSTEM</h1>
                 </div>
                 <div className={styles.right}>
                     <form className={styles.form_container} onSubmit={handleSubmit}>
+                        <h4>Lecturer</h4>
                         <h1>Create Account</h1>
                         <input 
                             type="text" 
                             className={styles.input} 
-                            placeholder="Registration Number"
-                            name='regNumber'
+                            placeholder="Username"
+                            name='username'
                             onChange={handleChange}
-                            value={data.regNumber} 
+                            value={data.username} 
                             required   
                         />
                         <input 
@@ -78,16 +79,16 @@ const Signup = () => {
                         <input 
                             type="text" 
                             className={styles.input} 
-                            placeholder="Sponsor Email"
-                            name='sponsorEmail'
+                            placeholder="Course Code"
+                            name='courseCode'
                             onChange={handleChange}
-                            value={data.sponsorEmail} 
+                            value={data.courseCode} 
                             required   
                         />
                         <input 
                             type="password" 
                             className={styles.input} 
-                            placeholder="password"
+                            placeholder="Create password"
                             name='password'
                             onChange={handleChange}
                             value={data.password} 
