@@ -51,6 +51,11 @@ router.get('/listSignedByDepartment', function (req, res, next) {
 
 router.post('/new', (req, res, next) => {
   req.body.creationDate = new Date().toDateString();
+  req.body.departmentComment = " ",
+  req.body.departmentApproval = "Pending",
+  req.body.teacherComment = " "
+  req.body.teacherSignature = "Pending",
+  req.body.examinationOfficerSignature = "Pending"
   console.log(req.body);
   next()
 }
