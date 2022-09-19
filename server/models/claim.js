@@ -62,10 +62,6 @@ const ClaimSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    departmentSignature: {
-        type: String,
-        required: false
-    },
     teacherComment: {
         type: String,
         required: false

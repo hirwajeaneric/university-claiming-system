@@ -5,7 +5,7 @@ import './styles.css';
 const Success = () => {
   return (
     <div className='summary-container'>
-      <h1 className='success-message-header'>Claim Successfully Created</h1>
+      <h1 className='success-message-header'>Cliam Successfully Updated</h1>
       <div className='student-identification'>
       </div>
     </div>
