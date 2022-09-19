@@ -9,7 +9,7 @@ router.post('/', async(req, res)=> {
         if(error)
             return res.status(400).send({message:error.details[0].message})
     
-        const lecturer = await Lecturer.findOne({email: req.body.email});
+        const lecturer = await Lecturer.findOne({username: req.body.username});
         if(!lecturer)
             return res.status(401).send({message: "Invalid Username or Password"})
 
@@ -21,7 +21,11 @@ router.post('/', async(req, res)=> {
             return res.status(401).send({message: "Invalid Username or Password"});
             
         const token = lecturer.generateAuthToken();
-        res.status(200).send({data: token, message: "Logged in Successfully"})    
+        res.status(200).send({
+            token: token, 
+            user: lecturer, 
+            message: "Logged in Successfully"
+        })    
         
     } catch (error) {
         res.status(500).send({message: "Internal Server Error"})

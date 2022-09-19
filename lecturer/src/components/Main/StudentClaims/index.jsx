@@ -4,14 +4,14 @@ import './styles.css';
 import axios from 'axios';
 import { useState } from 'react';
 
-const MyClaims = ()=> {
+const StudentClaims = ()=> {
   const [claims, setClaims] = useState([])
   const [errors, setErrors] = useState("")
 
   useEffect(()=>{
-    const regNo = localStorage.getItem("id");
-    console.log(regNo);
-    axios.get(`http://localhost:8080/api/claim/findByRegNumber?regNumber=${regNo}`)
+    const courseCode = localStorage.getItem("courseCode");
+    console.log(courseCode);
+    axios.get(`http://localhost:8080/api/claim/findByCourseCode?courseCode=${courseCode}`)
     .then((res) => {
       console.log(res.data);
       setClaims(res.data)
@@ -24,12 +24,8 @@ const MyClaims = ()=> {
   return (
     <div className="contracts_container">
       <div className='titlebar'>
-        <h1 className='titleText'>My Claims</h1>
-        <Link className='new_contract_link' to={'/new-claim'}>New</Link>
+        <h1 className='titleText'>Claims</h1>
       </div>
-      {/* <div className='success_message_box'>
-        <p className='success_msg'>Error Message Here</p>
-      </div> */}
       <div className='table-container'>
         <table>
           <thead>
@@ -37,8 +33,8 @@ const MyClaims = ()=> {
                 <th>Date</th>
                 <th>Course</th>
                 <th>Type</th>
+                <th>Details</th>
                 <th>Lecturer Approval</th>
-                <th>Department Approval</th>
                 <th>Status</th>
                 <th>Actions</th>
             </tr>
@@ -50,11 +46,12 @@ const MyClaims = ()=> {
                   <td>{claim.creationDate}</td>
                   <td>{claim.courseName}</td>
                   <td>{claim.type}</td>
+                  <td>{claim.claimDetails}</td>
                   <td>{claim.teacherSignature}</td>
-                  <td>{claim.departmentApproval}</td>
                   <td>{claim.status}</td>
                   <td>
                     <Link to={`/claim/${claim._id}`} className="view-link">Details</Link>
+                    <Link to={`/update/${claim._id}`} className="update-link">Update</Link>
                   </td>
                 </tr>
               )): errors
@@ -66,4 +63,4 @@ const MyClaims = ()=> {
   )
 }
 
-export default MyClaims
+export default StudentClaims

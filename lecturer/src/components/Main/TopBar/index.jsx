@@ -4,8 +4,7 @@ import auca_icon from '../../../Assets/Img/iconLogo.png';
 
 const TopBar = () => {
     
-    const name = localStorage.getItem('name');
-    const id = localStorage.getItem('id');
+    const username = localStorage.getItem('username');
 
     const handleLogout = ()=>{
         localStorage.removeItem("token");
@@ -21,8 +20,8 @@ const TopBar = () => {
                 <h1 className={styles.systemName}>AUCA Claiming System</h1>
             </div>
             <div className={styles.right_s}>
-                <p className={styles.userName}>{name}&nbsp;&nbsp;&nbsp;-</p>
-                <p className={styles.registrationNumber}>{id}</p>
+                <p className={styles.userName}>{username}&nbsp;&nbsp;&nbsp;- </p>
+                <p className={styles.registrationNumber}>LECTURER</p>
                 <button className={styles.logout_buttn} onClick={handleLogout}>Logout</button>
             </div>
         </div>

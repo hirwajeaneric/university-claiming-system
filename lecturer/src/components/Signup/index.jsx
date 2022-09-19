@@ -6,10 +6,11 @@ import { useState } from 'react';
 
 const Signup = () => {
     const [data, setData] = useState({
-        regNumber:"",
+        username:"",
         name: "",
         email: "",
-        password:""
+        courseCode: "",
+        password: ""
     });
 
     const [error, setError] = useState("");
@@ -22,7 +23,7 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url = "http://localhost:8080/student/signup";
+            const url = "http://localhost:8080/lecturer/signup";
             const { data: res } = await axios.post(url, data);
             navigate('/login');
             console.log(res.message);
@@ -46,14 +47,15 @@ const Signup = () => {
                 </div>
                 <div className={styles.right}>
                     <form className={styles.form_container} onSubmit={handleSubmit}>
+                        <h4>Lecturer</h4>
                         <h1>Create Account</h1>
                         <input 
                             type="text" 
                             className={styles.input} 
-                            placeholder="Registration Number"
-                            name='regNumber'
+                            placeholder="Username"
+                            name='username'
                             onChange={handleChange}
-                            value={data.regNumber} 
+                            value={data.username} 
                             required   
                         />
                         <input 
@@ -75,6 +77,15 @@ const Signup = () => {
                             required   
                         />
                         <input 
+                            type="text" 
+                            className={styles.input} 
+                            placeholder="Course Code"
+                            name='courseCode'
+                            onChange={handleChange}
+                            value={data.courseCode} 
+                            required   
+                        />
+                        <input 
                             type="password" 
                             className={styles.input} 
                             placeholder="Create password"
@@ -83,15 +94,6 @@ const Signup = () => {
                             value={data.password} 
                             required   
                         />
-                        {/* <input 
-                            type="password" 
-                            className={styles.input} 
-                            placeholder="Confirm password"
-                            name='confirmPassword'
-                            onChange={handleChange}
-                            value={data.password} 
-                            required   
-                        /> */}
                         { error && <div className={styles.error_msg}>{error}</div> }
                         <button type='submit' className={styles.green_btn}>Sign Up</button>
                         <div className={styles.bottom}>

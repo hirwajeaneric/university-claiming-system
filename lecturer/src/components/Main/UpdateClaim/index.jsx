@@ -5,7 +5,7 @@ import FormTableOne from '../FormTableOne';
 import './styles.css';
 import departments from '../AucaDepartments/Departments';
 
-function CreateClaim() {
+function UpdateClaim() {
 
   const navigate = useNavigate();
   const [formData, setFormData] = useState({});
@@ -105,4 +105,4 @@ function CreateClaim() {
   )
 }
 
-export default CreateClaim
+export default UpdateClaim

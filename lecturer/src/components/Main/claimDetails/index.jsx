@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import './styles.css';
 
 const ClaimDetails = () => {
@@ -25,52 +25,59 @@ const ClaimDetails = () => {
   return (
     <div className='contractdetails-container'>
       <h2>Claim Details</h2>
-      <h3 className='contract-date'>Claim submitted on: &nbsp;&nbsp; 
-        <span className='the-date'>{claim.creationDate}</span>
-      </h3>
+      <h4 className='claim-date'>Submitted on: &nbsp;&nbsp; 
+        <span className='the-date'>{claim.creationDate}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+        By:&nbsp;&nbsp;
+        <span className='the-name'>{claim.name}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+        Id:&nbsp;&nbsp;
+        <span className='the-id'>{claim.regNumber}</span>
+      </h4>
       <div className="contractdetails-space">
         <table className='contractdetails-table'>
           <tr>
-            <th>Academic Year</th>
-            <td>{claim.academicYear}</td>
+            <th className='details-theaders'>Course</th>
+            <td className='details-tdata'>{claim.courseName}</td>
           </tr>
           <tr>
-            <th>Course</th>
-            <td>{claim.courseName}</td>
+            <th className='details-theaders'>Course Code</th>
+            <td className='details-tdata'>{claim.courseCode}</td>
           </tr>
           <tr>
-            <th>Course Code</th>
-            <td>{claim.courseCode}</td>
+            <th className='details-theaders'>Type</th>
+            <td className='details-tdata'>{claim.type}</td>
           </tr>
           <tr>
-            <th>Type</th>
-            <td>{claim.type}</td>
+            <th className='details-theaders'>Claim Details</th>
+            <td className='details-tdata'>{claim.claimDetails}</td>
           </tr>
           <tr>
-            <th>Claim Details</th>
-            <td>{claim.claimDetails}</td>
+            <th className='details-theaders'>Status</th>
+            <td className='details-tdata'>{claim.status}</td>
           </tr>
           <tr>
-            <th>Status</th>
-            <td>{claim.status}</td>
+            <th className='details-theaders'>Lecturer's Comment</th>
+            <td className='details-tdata'>{claim.teacherComment}</td>
           </tr>
           <tr>
-            <th>Lecturer's Comment</th>
-            <td>{claim.teacherComment}</td>
+            <th className='details-theaders'>Lecturer's Signature</th>
+            <td className='details-tdata'>{claim.teacherSignature}</td>
           </tr>
           <tr>
-            <th>Lecturer's Signature</th>
-            <td>{claim.teacherSignature}</td>
+            <th className='details-theaders'>Department's Comment</th>
+            <td className='details-tdata'>{claim.departmentComment}</td>
           </tr>
           <tr>
-            <th>Department's Comment</th>
-            <td>{claim.departmentComment}</td>
+            <th className='details-theaders'>Department Approval</th>
+            <td className='details-tdata'>{claim.departmentApproval}</td>
           </tr>
           <tr>
-            <th>Department Approval</th>
-            <td>{claim.departmentApproval}</td>
+            <th className='details-theaders'>Examination Officer Signature</th>
+            <td className='details-tdata'>{claim.examinationOfficerSignature}</td>
           </tr>
         </table>
+      </div>
+      <div className='button-space'>
+      <Link to={`/update/${claim._id}`} className="details-update-link">Validate/Update</Link>
       </div>
     </div>
   )
